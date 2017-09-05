@@ -25,3 +25,12 @@ CREATE TABLE Pessoa(
     primary key (id),
     FOREIGN KEY (tipoID) REFERENCES tipoPessoa(id)
     )engine = InnoDB;
+    
+DROP TABLE IF EXISTS ListaConvidados;
+CREATE TABLE ListaConvidados(
+	idLista INT NOT NULL,
+	idMorador INT NOT NULL,
+    nomeConvidado varchar(50) NOT NULL,
+    PRIMARY KEY (idLista),
+    FOREIGN KEY (idMorador) REFERENCES Pessoa(id)
+    )engine = InnoDB;
