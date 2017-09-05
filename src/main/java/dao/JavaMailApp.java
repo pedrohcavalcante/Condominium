@@ -1,4 +1,5 @@
 package dao;
+import java.util.ArrayList;
 import java.util.Properties;
 import javax.mail.Address;
 import javax.mail.Message;
@@ -14,7 +15,11 @@ import controle.JavaMailAppMBean;
 
 public class JavaMailApp {
 	 public static void main(String[] args) {
+		 ArrayList<String> emails = new ArrayList<>();
+		 
+		 emails.add("aafavelino@icloud.com");
+		 emails.add("adelino18fernandes@gmail.com");
 		 JavaMailAppMBean email =  new JavaMailAppMBean();
-		 email.enviarEmail("Teste", "Uma mensagem qualquer");
+		 email.enviarEmail("Teste", "Uma mensagem qualquer", emails);
    }
 }
