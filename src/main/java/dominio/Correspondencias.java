@@ -1,5 +1,10 @@
 package dominio;
 
-public class Correspondencias {
+import java.util.Date;
 
+public class Correspondencias {
+	public int idPessoaDest;
+	public Date data;
+	
+	//enviaEmail();
 }
