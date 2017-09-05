@@ -1,0 +1,13 @@
+footer {
+  display: block;
+  position: absolute;
+  top: 94.5%;
+  left: 40%;
+  height: 2em;
+  float:left;
+}
+
+footer p {
+  position: relative;
+  left: 40%;
+}

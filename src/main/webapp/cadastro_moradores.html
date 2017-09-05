@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title> Condominium::Home </title>
+
+    <meta charset="utf-8"/>
+
+    <link href="static/css/base.css" rel="stylesheet"  />
+    <link href="static/css/cadastro_morador.css" rel="stylesheet"  />
+
+  </head>
+  <body>
+    <div class="container">
+
+      <header class="admin_nav">
+        <div class="top_menu_option">
+          <a href="cadastro_moradores.html"> cadastrar morador </a>
+        </div>
+        <div class="top_menu_option">
+          <a href="correspondencias.html"> correspondência </a>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="login_form">
+          <form> <!-- cria um novo morador -->
+            <input type="text" placeholder="morador nome" class="morador_input" />
+            <input type="password" placeholder="morador cpf" class="morador_input" />
+            <input type="password" placeholder="morador rg" class="morador_input" />
+            <input type="password" placeholder="morador bloco" class="morador_input" />
+            <input type="password" placeholder="morador apartamento" class="morador_input" />
+
+            <input type="submit" value="registrar" class="morador_input" />
+          </form>
+        </div>
+      </div>
+
+      <div class="lista_moradores">
+        <!-- Lista de moradores do condominio fica dentro dessa div -->
+      </div>
+
+    </div>
+  </body>
+</html>
