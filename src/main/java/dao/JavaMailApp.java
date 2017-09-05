@@ -24,7 +24,7 @@ public class JavaMailApp {
                      new javax.mail.Authenticator() {
                           protected PasswordAuthentication getPasswordAuthentication()
                           {
-                                return new PasswordAuthentication("adelino18fernandes@gmail.com", "botesuasenhaaqui");
+                                return new PasswordAuthentication("adelino18fernandes@gmail.com", "adelino01");
                           }
                      });
 
