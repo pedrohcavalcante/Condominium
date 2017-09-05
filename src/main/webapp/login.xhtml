@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	<h:head>
 		<title>Condominium</title>
 	</h:head>
 	<h:body>	
-	oi
+		<h1>Condominium</h1>
+		<h:form>
+			<h:inputText value="{#usuarioMBean.usuario.matricula}" a:placeholder="Usuario" />
+			<h:inputSecret value="#{usuarioMBean.usuario.senha}" a:placeholder="Senha"/>
+		</h:form>
 	</h:body>
 </html>
