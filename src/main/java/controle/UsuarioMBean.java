@@ -19,7 +19,7 @@ import servico.SindicoService;
 import servico.UsuarioService;
 
 @ManagedBean(name="usuarioMBean")
-@SessionScoped
+//@SessionScoped
 public class UsuarioMBean {
 	
 	private Usuario user;
