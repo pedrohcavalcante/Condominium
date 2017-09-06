@@ -20,6 +20,6 @@ public class JavaMailApp {
 		 emails.add("aafavelino@icloud.com");
 		 emails.add("adelino18fernandes@gmail.com");
 		 JavaMailAppMBean email =  new JavaMailAppMBean();
-		 email.enviarEmail("Teste", "Uma mensagem qualquer", emails);
+		 email.enviarEmail();
    }
 }

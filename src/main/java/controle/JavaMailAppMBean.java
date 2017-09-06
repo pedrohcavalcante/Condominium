@@ -1,6 +1,5 @@
 package controle;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -19,11 +18,35 @@ public class JavaMailAppMBean {
 
 	public Session session;
 	/**Teste*/ ArrayList<String> emails =  new ArrayList<String>();
-	String men;
-	String umemail;
+	private String menssagem = null;
+	private String assunto = null;
 	
 	
 	
+	public ArrayList<String> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(ArrayList<String> emails) {
+		this.emails = emails;
+	}
+
+	public String getMenssagem() {
+		return menssagem;
+	}
+
+	public void setMenssagem(String menssagem) {
+		this.menssagem = menssagem;
+	}
+
+	public String getAssunto() {
+		return assunto;
+	}
+
+	public void setAssunto(String assunto) {
+		this.assunto = assunto;
+	}
+
 	public JavaMailAppMBean() {
 		// TODO Auto-generated constructor stub
         Properties props = new Properties();
@@ -45,13 +68,13 @@ public class JavaMailAppMBean {
         //Debug para sessão 
         session.setDebug(true);
         /**Teste*/ //emails.add("adelino18fernandes@gmail.com");
-        /**Teste*/ //emails.add("aafavelino@icloud.com"); 
-        emails.add(umemail);
+        /**Teste*/ emails.add("aafavelino@icloud.com");
+        		   emails.add("adelino18fernandes@gmail.com");
+        
        
 	}
 	
-	public void enviarEmail(String assunto, String mensagem, ArrayList<String> listadeemails) {
-		
+	public void enviarEmail() {
         try {
         	String mail = "";
             Message message = new MimeMessage(session);
@@ -59,7 +82,7 @@ public class JavaMailAppMBean {
             
             Address[] recipientes = null;
             
-            for (String string : listadeemails) {
+            for (String string : emails) {
             	if(string != null)
             		mail += string + ", ";
             	
@@ -70,7 +93,7 @@ public class JavaMailAppMBean {
 
             message.setRecipients(Message.RecipientType.TO, recipientes);
             message.setSubject(assunto);//Assunto
-            message.setText(mensagem);//Mensagem
+            message.setText(menssagem);//Mensagem
             /**Enviar a mensagem criada*/
             Transport.send(message);
 

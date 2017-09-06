@@ -16,10 +16,12 @@
     
     	
     	<h:form>
-		    <h:inputText value="#{JavaMailAppMBean.men}" />
-		    <h:inputText value="#{JavaMailAppMBean.umemail}" />
-		    <h:commandButton action="#{olaMundoBean.nomeFoiDigitado}" 
+		    <h:inputText placeholder="Assunto"  value="#{javaMailAppMBean.assunto}" />
+		    <h:inputTextarea placeholder="Mensagem" row = "10" col = "10" value = "#{javaMailAppMBean.menssagem}"/>
+		    <h:commandButton action="#{javaMailAppMBean.enviarEmail}" 
              value="Ok"/>
+             
+             
   		</h:form>
     	
     		
