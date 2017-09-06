@@ -17,8 +17,8 @@ public class JavaMailApp {
 	 public static void main(String[] args) {
 		 ArrayList<String> emails = new ArrayList<>();
 		 
-		 emails.add("aafavelino@icloud.com");
-		 emails.add("adelino18fernandes@gmail.com");
+		// emails.add("aafavelino@icloud.com");
+		// emails.add("adelino18fernandes@gmail.com");
 		 JavaMailAppMBean email =  new JavaMailAppMBean();
 		 email.enviarEmail();
    }
