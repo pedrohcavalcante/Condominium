@@ -77,8 +77,14 @@
 			<artifactId>java-util</artifactId>
 			<version>1.29.0</version>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.7-dmr</version>
+		</dependency>
 
 
+	
 	</dependencies>
 
 
