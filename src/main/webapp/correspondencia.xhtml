@@ -1,32 +1,53 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html
+xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	>
+	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Correspondências</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Correspondências</title>
 </h:head>
+<h:body>
 
+<div class="container">
+  <h2>Gerenciador de Correspondências Condominium 1.0</h2>
+  <h:form>
+  
+  	<div class="form-group">
+  		<label for="assunto">Assunto:</label>
+  		<textarea value="#{javaMailAppMBean.assunto}"  tipe="assunto" class="form-control" id="assunto" placeholder="Entre com o assunto" ></textarea>
+  	</div>
+  
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Entre com o email">
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="mensagem">Mensagem:</label>
+      <textarea value = "#{javaMailAppMBean.menssagem}" type="men" class="form-control" id="men" placeholder="Entre com a mensagem"></textarea>
+    </div>
+    
+    
+    <div class="checkbox">
+      <label><input type="checkbox">Lembrar dados</label>
+    </div>
+    
+    <button  type="submit" class="btn btn-default">Enviar</button>
+    <h:commandButton action="#{javaMailAppMBean.enviarEmail}" value="Enviar"/>
+    
+    
+  </h:form>
+</div>
 
-    <h:body>
-    
-    	
-    	<h:form>
-		    <h:inputText placeholder="Assunto"  value="#{javaMailAppMBean.assunto}" />
-		    <h:inputTextarea placeholder="Mensagem" row = "10" col = "10" value = "#{javaMailAppMBean.menssagem}"/>
-		    <h:commandButton action="#{javaMailAppMBean.enviarEmail}" 
-             value="Ok"/>
-             
-             
-  		</h:form>
-    	
-    		
-    </h:body>
-    
-    
-
+</h:body> 
 </html>
+
