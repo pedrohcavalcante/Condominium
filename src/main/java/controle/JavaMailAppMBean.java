@@ -61,7 +61,7 @@ public class JavaMailAppMBean {
                     new javax.mail.Authenticator() {
                          protected PasswordAuthentication getPasswordAuthentication()
                          {
-                               return new PasswordAuthentication("adelino18fernandes@gmail.com", "adelino01");
+                               return new PasswordAuthentication("adelino18fernandes@gmail.com", "senha");
                          }
                     });
 
@@ -69,7 +69,7 @@ public class JavaMailAppMBean {
         session.setDebug(true);
         /**Teste*/ //emails.add("adelino18fernandes@gmail.com");
         /**Teste*/ emails.add("aafavelino@icloud.com");
-        		   emails.add("adelino18fernandes@gmail.com");
+        		   //emails.add("adelino18fernandes@gmail.com");
         
        
 	}
