@@ -2,7 +2,15 @@ DROP SCHEMA IF EXISTS condominium;
 create schema condominium;
 use CONDOMINIUM;
 
-
+DROP TABLE IF EXISTS Usuario;
+CREATE TABLE Usuario(
+	login varchar(50),
+    senha varchar(50),
+    tipoID int(1)
+    )engine = InnoDB;
+    
+    INSERT INTO USUARIO VALUES ("PEDRO","PEDRO", 1);
+    
 DROP TABLE IF EXISTS tipoPessoa;
 CREATE TABLE tipoPessoa(
 	id INT(1) NOT NULL,

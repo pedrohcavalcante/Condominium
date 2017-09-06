@@ -1,22 +1,33 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
 	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	>
-	<h:head>
-		<title>Condominium</title>
-	</h:head>
-	<h:body>	
-		<h1>Condominium</h1>
-		<h:form>
-			<input jsf:id="usuario" jsf:value="#{usuarioMBean.user.login}" placeholder="Usuario com input html"  />
-		
-			<h:inputText value="" a:placeholder="Usuario" />
-			<h:inputSecret value="#{usuarioMBean.user.senha}" />
-			<h:commandLink action="#{usuarioMBean.login}">Logar</h:commandLink>
-		</h:form>
-	</h:body>
+>
+  <h:head>
+    <title> Condominium::Home </title>
+
+    <meta charset="utf-8"/>
+
+    <link href="static/css/base.css" rel="stylesheet"  />
+    <link href="static/css/index.css" rel="stylesheet"  />
+
+  </h:head>
+  <h:body>
+    <div class="content">
+      <div class="login_form">
+        <h:form>
+          <h:inputText class="fields" value="#{usuarioMBean.user.login}" a:placeholder="Usuário"/>
+          <h:inputSecret class="fields" value="#{usuarioMBean.user.senha}" a:placeholder="Senha"/>
+          <h:commandLink action="#{usuarioMBean.login}" class="submit_button">Logar</h:commandLink>
+        </h:form>
+      </div>
+    </div>
+
+    <footer>
+      	<p> Condominium </p>
+    </footer>
+  </h:body>
 </html>

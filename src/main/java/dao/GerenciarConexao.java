@@ -2,6 +2,8 @@ package dao;
 
 import java.sql.*;
 
+import dominio.Usuario;
+
 
 public class GerenciarConexao {
 
@@ -24,4 +26,6 @@ public class GerenciarConexao {
 		}
 		return conexao;
 	}
+	
+
 }

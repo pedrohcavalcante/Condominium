@@ -26,7 +26,6 @@
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>6.1</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -48,14 +47,12 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>7.0</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
 			<version>2.2.7</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -76,10 +73,10 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.cedarsoftware/java-util -->
 		<dependency>
-    <groupId>com.cedarsoftware</groupId>
-    <artifactId>java-util</artifactId>
-    <version>1.29.0</version>
-</dependency>
+			<groupId>com.cedarsoftware</groupId>
+			<artifactId>java-util</artifactId>
+			<version>1.29.0</version>
+		</dependency>
 
 
 	</dependencies>
