@@ -41,11 +41,11 @@ public class GerenciarConexao {
 			ps = (conexaoDAO).prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				System.out.println(rs.getString("login") + " " + rs.getString("senha"));
+				System.out.println(rs.getString("login") + " " + rs.getString("senha") + " " + rs.getInt("tipoID"));
 				Usuario usuario = new Usuario();
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setTipoID(TipoPessoa.fromInteger(rs.getInt("tipoId")));
+				usuario.setTipoID(TipoPessoa.fromInteger(rs.getInt("tipoID")));
 				resultado.add(usuario);
 			}
 		} catch (SQLException e) {

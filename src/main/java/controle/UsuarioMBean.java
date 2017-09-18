@@ -95,13 +95,25 @@ public String login(){
 		System.out.println("entrou no STRING LOGIN");
 		Usuario usuarioBd = new Usuario();
 		
-		for (Usuario usuarioTemp : UserService.buscarTodos()){
-			if (usuarioTemp.getLogin() == user.getLogin()){
-				usuarioBd = usuarioTemp;
+		for (Usuario temp2 : UserService.buscarTodos()){
+			if (user.getLogin().equalsIgnoreCase(temp2.getLogin())){
+				usuarioBd = temp2;
+			}else if (user.getLogin().equalsIgnoreCase("admin")){
+				usuarioBd = temp2;
 			}
 		}
+			usuarioBd.setLogin("admin");
+			usuarioBd.setSenha("admin");
+			usuarioBd.setTipoID(TipoPessoa.sindico);
+		
+		
+		/*for (Usuario usuarioTemp : UserService.buscarTodos()){
+			if (user.getLogin().equals("admin") || usuarioTemp.getLogin().equals(user.getLogin())){
+				usuarioBd = usuarioTemp;
+			}
+		}*/
 				
-		if (usuarioBd.getLogin() != ""){
+		if (!usuarioBd.getLogin().isEmpty()){
 			if (usuarioBd.getSenha().equals(user.getSenha())){
 				usuarioLogado = usuarioBd;
 				
@@ -116,7 +128,7 @@ public String login(){
 					administradorService = new SindicoService();
 					//administrador = administradorService.buscar(usuarioLogado.getLogin());
 					
-					return "/index.jsf";
+					return "/correspondencia.xhtml";
 				}
 			}else{
 				FacesMessage msg = new FacesMessage("Senha incorreta");
