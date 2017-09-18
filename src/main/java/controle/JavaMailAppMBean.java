@@ -18,11 +18,20 @@ public class JavaMailAppMBean {
 
 	public Session session;
 	/**Teste*/ ArrayList<String> emails =  new ArrayList<String>();
+	
 	private String menssagem = null;
 	private String assunto = null;
-	
-	
-	
+	private String email = null;
+
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public ArrayList<String> getEmails() {
 		return emails;
 	}
@@ -46,6 +55,8 @@ public class JavaMailAppMBean {
 	public void setAssunto(String assunto) {
 		this.assunto = assunto;
 	}
+	
+
 
 	public JavaMailAppMBean() {
 		// TODO Auto-generated constructor stub
@@ -67,9 +78,11 @@ public class JavaMailAppMBean {
 
         //Debug para sessão 
         session.setDebug(true);
+        
+        
         /**Teste*/ //emails.add("adelino18fernandes@gmail.com");
-        /**Teste*/ emails.add("aafavelino@icloud.com");
-        		   //emails.add("adelino18fernandes@gmail.com");
+        /**Teste*/ 
+        		   emails.add("adelino18fernandes@gmail.com");
         
        
 	}
