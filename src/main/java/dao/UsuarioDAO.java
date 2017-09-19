@@ -9,9 +9,9 @@ import java.util.List;
 
 import dominio.TipoPessoa;
 import dominio.Usuario;
-import dao.GerenciadorConexao;
+import dao.GerenciarConexao;
 
-public class UsuarioDAO implements AllDAO<Usuario>{
+public class UsuarioDAO implements InterfaceDAO<Usuario>{
 	
 	private List<Usuario> resultadoConsulta;
 	//private Connection conexaoBanco;
@@ -38,7 +38,7 @@ public class UsuarioDAO implements AllDAO<Usuario>{
 			resultadoConsulta = new ArrayList<Usuario>();
 			getInfo.setLogin("admin");
 			getInfo.setSenha("admin");
-			getInfo.setID(TipoPessoa.sindico);
+			getInfo.setTipoID(TipoPessoa.sindico);
 			resultadoConsulta.add(getInfo);
 			//e.printStackTrace();
 		//}

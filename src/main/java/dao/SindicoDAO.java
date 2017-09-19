@@ -5,7 +5,7 @@ import java.util.List;
 import dominio.Sindico;
 import dominio.TipoPessoa;
 
-public class SindicoDAO implements AllDAO<Sindico>{
+public class SindicoDAO implements InterfaceDAO<Sindico>{
 
 	@Override
 	public List<Sindico> buscarTodos() {

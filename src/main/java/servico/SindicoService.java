@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import dao.SindicoDAO;
 import dominio.Sindico;
 
-public class SindicoService implements AllService<Sindico>{
+public class SindicoService implements InterfaceServico<Sindico>{
 	
 	@Inject
 	private SindicoDAO sindicoDAO;

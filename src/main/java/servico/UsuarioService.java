@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import dao.UsuarioDAO;
 import dominio.Usuario;
 
-public class UsuarioService implements AllService<Usuario>{
+public class UsuarioService implements InterfaceServico<Usuario>{
 	@Inject
 	private UsuarioDAO usuarioDAO;
 	

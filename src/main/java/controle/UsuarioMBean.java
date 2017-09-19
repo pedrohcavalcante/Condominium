@@ -126,7 +126,7 @@ public class UsuarioMBean {
 				System.out.println("Senha bate: " + getUsuarioBanco.getSenha() + " " + loginUsuario.getSenha());
 				usuarioLogado = getUsuarioBanco;
 				
-				if (usuarioLogado.getID() == TipoPessoa.sindico){
+				if (usuarioLogado.getTipoID() == TipoPessoa.sindico){
 					sindico = new Sindico();
 					sindicoService = new SindicoService();
 					sindico = sindicoService.buscar(usuarioLogado.getLogin());
