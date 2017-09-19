@@ -1,142 +1,149 @@
 package controle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import dominio.Pessoa;
+import dominio.Morador;
 import dominio.Sindico;
 import dominio.TipoPessoa;
 import dominio.Usuario;
-import servico.PessoaService;
+import servico.MoradorService;
 import servico.SindicoService;
 import servico.UsuarioService;
 
-@ManagedBean(name="usuarioMBean")
-//@SessionScoped
+@ManagedBean
+@SessionScoped
 public class UsuarioMBean {
 	
-	private Usuario user;
-	private List<Usuario> listaUser;
-	private UsuarioService UserService;
+	private Usuario loginUsuario;
+	private List<Usuario> listUsuario;
+	private UsuarioService serviceUsuario;
+	//===================================
 	private Usuario usuarioLogado;
-	private Pessoa morador;
-	private Sindico administrador;
+	private Morador morador;
+	private Sindico sindico;
+	//===================================
+	@Inject
+	private MoradorService moradorService;
 	
 	@Inject
-	private PessoaService pessoaService;
+	private SindicoService sindicoService;
 	
-	@Inject 
-	private SindicoService administradorService;
 	
 	public UsuarioMBean(){
-		user = new Usuario();
-		listaUser = new ArrayList<Usuario>();
-		UserService = new UsuarioService();	
+		loginUsuario = new Usuario();
+		listUsuario = new ArrayList<Usuario>();
+		serviceUsuario = new UsuarioService();
 	}
 
-	public Usuario getUser() {
-		System.out.println("return user");
-		return user;
+
+	public Usuario getLoginUsuario() {
+		return loginUsuario;
 	}
 
-	public void setUser(Usuario user) {
-		System.out.println("Set user");
-		this.user = user;
+
+	public void setLoginUsuario(Usuario loginUsuario) {
+		this.loginUsuario = loginUsuario;
 	}
 
-	public List<Usuario> getListaUser() {
-		System.out.println("get list user");
-		return listaUser;
+
+	public List<Usuario> getListUsuario() {
+		return listUsuario;
 	}
 
-	public void setListaUser(List<Usuario> listaUser) {
-		System.out.println("setlistauser");
-		this.listaUser = listaUser;
+
+	public void setListUsuario(List<Usuario> listUsuario) {
+		this.listUsuario = listUsuario;
 	}
+
+
+/*	public UsuarioService getServiceUsuario() {
+		return serviceUsuario;
+	}
+
+
+	public void setServiceUsuario(UsuarioService serviceUsuario) {
+		this.serviceUsuario = serviceUsuario;
+	}*/
+
 
 	public Usuario getUsuarioLogado() {
-		System.out.println("get user logado");
 		return usuarioLogado;
 	}
 
+
 	public void setUsuarioLogado(Usuario usuarioLogado) {
-		System.out.println("set user logado");
 		this.usuarioLogado = usuarioLogado;
 	}
 
-	public Pessoa getMorador() {
-		System.out.println("get morador");
+
+	public Morador getMorador() {
 		return morador;
 	}
 
-	public void setMorador(Pessoa morador) {
-		System.out.println("set  morador");
+
+	public void setMorador(Morador morador) {
 		this.morador = morador;
 	}
 
-	public Sindico getAdministrador() {
-		System.out.println("get admin");
-		return administrador;
+
+	public Sindico getSindico() {
+		return sindico;
 	}
 
-	public void setAdministrador(Sindico administrador) {
-		System.out.println("set admin");
-		this.administrador = administrador;
+
+	public void setSindico(Sindico sindico) {
+		this.sindico = sindico;
 	}
 	
-public String login(){
-		System.out.println("entrou no STRING LOGIN");
-		Usuario usuarioBd = new Usuario();
+	public String login(){
+		Usuario getUsuarioBanco = new Usuario();
 		
-		for (Usuario usuarioTemp : UserService.buscarTodos()){
-			if (usuarioTemp.getLogin() == user.getLogin()){
-				usuarioBd = usuarioTemp;
+		// Verificar se login passado no xhtml estÃ¡ cadastrado no banco de dados. 
+		
+		for (Usuario temporario : serviceUsuario.buscarTodos()){
+			if (temporario.getLogin().equals(loginUsuario.getLogin())){
+				getUsuarioBanco = temporario;
+				break;
 			}
 		}
-				
-		if (usuarioBd.getLogin() != ""){
-			if (usuarioBd.getSenha().equals(user.getSenha())){
-				usuarioLogado = usuarioBd;
-				
-				if (usuarioLogado.getTipoID() == TipoPessoa.morador){
-					
-					pessoaService = new PessoaService();
-					morador = pessoaService.buscar(usuarioLogado.getLogin());
-					
-					return "/index.jsf";
-				}else{
-					
-					administradorService = new SindicoService();
-					//administrador = administradorService.buscar(usuarioLogado.getLogin());
-					
-					return "/index.jsf";
-				}
-			}else{
-				FacesMessage msg = new FacesMessage("Senha incorreta");
-				msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-				FacesContext.getCurrentInstance().addMessage("", msg);
-				return null;
+		/*for (Usuario temporario : serviceUsuario.buscarTodos()){
+			if (temporario.getLogin() == loginUsuario.getLogin()){
+				getUsuarioBanco = temporario;
 			}
+		}*/
+		
+		if (getUsuarioBanco.getLogin().isEmpty()){
+			System.out.println("Login nao encontrado");
 		}else{
-			FacesMessage msg = new FacesMessage("Usuário não existe");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			FacesContext.getCurrentInstance().addMessage("", msg);
-			return null;
+			if (getUsuarioBanco.getSenha().equalsIgnoreCase((loginUsuario.getSenha()))){
+				System.out.println("Senha bate: " + getUsuarioBanco.getSenha() + " " + loginUsuario.getSenha());
+				usuarioLogado = getUsuarioBanco;
+				
+				if (usuarioLogado.getID() == TipoPessoa.sindico){
+					sindico = new Sindico();
+					sindicoService = new SindicoService();
+					sindico = sindicoService.buscar(usuarioLogado.getLogin());
+					try {
+						FacesContext.getCurrentInstance().getExternalContext().redirect("sindico.xhtml");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					//return "/sindico.xhtml";
+				}else{
+					morador = new Morador();
+					return "/morador.xhtml";
+				}
+			}
 		}
+		return null;
 	}
-	
-	public String logoff(){
-		this.usuarioLogado = null;
-		return "/login.jsf";
-	}
-	
-	
 
 }
