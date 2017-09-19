@@ -2,38 +2,53 @@ package servico;
 
 import java.util.List;
 
-import dominio.Pessoa;
+import javax.inject.Inject;
 
-public class SindicoService implements InterfaceServico<Pessoa>{
+import dao.SindicoDAO;
+import dominio.Sindico;
+
+public class SindicoService implements AllService<Sindico>{
+	
+	@Inject
+	private SindicoDAO sindicoDAO;
+	
+	public SindicoService() {
+		sindicoDAO = new SindicoDAO();
+	}
 
 	@Override
-	public List<Pessoa> buscarTodos() {
+	public List buscarTodos() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Pessoa buscar(Pessoa elemento) {
+	public Sindico buscar(Sindico elemento) {
 		// TODO Auto-generated method stub
-		return null;
+		return sindicoDAO.buscar(elemento);
+	}
+	
+	public Sindico buscar(String elemento) {
+		return sindicoDAO.buscar(elemento);
 	}
 
 	@Override
-	public void inserir(Pessoa novo) {
+	public void inserir(Sindico novo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void atualizar(Pessoa elemento) {
+	public void atualizar(Sindico elemento) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void remover(Pessoa elemento) {
+	public void remover(Sindico elemento) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
