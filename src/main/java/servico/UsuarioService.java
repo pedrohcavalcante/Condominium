@@ -7,42 +7,37 @@ import javax.inject.Inject;
 import dao.UsuarioDAO;
 import dominio.Usuario;
 
-public class UsuarioService implements InterfaceServico<Usuario>{
-	
+public class UsuarioService implements AllService<Usuario>{
 	@Inject
-	protected UsuarioDAO usuarioDao;
+	private UsuarioDAO usuarioDAO;
 	
 	public UsuarioService(){
-		usuarioDao = new UsuarioDAO();
+		usuarioDAO = new UsuarioDAO();
 	}
-
+	@Override 
 	public List<Usuario> buscarTodos() {
-		// TODO Auto-generated method stub
-		return usuarioDao.buscarTodos();
+		return usuarioDAO.buscarTodos();
 	}
-
-	@Override
+	@Override 
 	public Usuario buscar(Usuario elemento) {
-		// TODO Auto-generated method stub
-		return usuarioDao.buscar(elemento);
+		return usuarioDAO.buscar(elemento);
 	}
-
-	@Override
+	@Override 
 	public void inserir(Usuario novo) {
-		// TODO Auto-generated method stub
-		usuarioDao.inserir(novo);
+		usuarioDAO.inserir(novo);
+		
 	}
-
 	@Override
 	public void atualizar(Usuario elemento) {
-		// TODO Auto-generated method stub
+		usuarioDAO.atualizar(elemento);
+		
+	}
+	@Override 
+	public void remover(Usuario elemento) {
+		usuarioDAO.remover(elemento);
 		
 	}
 
-	@Override
-	public void remover(Usuario elemento) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
