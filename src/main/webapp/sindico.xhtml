@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Condominium::Home</title>
+
+	<meta charset="utf-8" />
+
+</h:head>
+<h:body>
+<a href="emails.xhtml">Enviar emails</a>
+	<table>
+		<ui:repeat var="sindico" value="#{usuarioMBean.sindico}">
+			<div class="content">
+				<div class="login_form">
+					<p id="user-name">#{sindico.nome}</p>
+					<p id="user-name">#{sindico.login}</p>
+					<p id="user-name">#{sindico.apartamento}</p>
+					Hello World
+				</div>
+			</div>
+		</ui:repeat>
+	</table>
+	<footer>
+		<p>Condominium</p>
+	</footer>
+</h:body>
+</html>
