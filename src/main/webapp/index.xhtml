@@ -19,8 +19,8 @@
     <div class="content">
       <div class="login_form">
         <h:form>
-          <h:inputText class="fields" value="#{usuarioMBean.user.login}" a:placeholder="Usuário"/>
-          <h:inputSecret class="fields" value="#{usuarioMBean.user.senha}" a:placeholder="Senha"/>
+          <h:inputText class="fields" value="#{usuarioMBean.loginUsuario.login}" a:placeholder="Usuario"/>
+          <h:inputSecret class="fields" value="#{usuarioMBean.loginUsuario.senha}" a:placeholder="Senha"/>
           <h:commandLink action="#{usuarioMBean.login}" class="submit_button">Logar</h:commandLink>
         </h:form>
       </div>
